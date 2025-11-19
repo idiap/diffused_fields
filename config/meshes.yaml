@@ -1,0 +1,37 @@
+# Copyright (c) 2024 Idiap Research Institute, http://www.idiap.ch/
+# Written by Cem Bilaloglu <cem.bilaloglu@idiap.ch>
+#
+# This file is part of diffused_fields.
+# Licensed under the MIT License. See LICENSE file in the project root.
+
+default:
+  scale: 1
+  rotation: [0, 0, 0]
+  translation: [0, 0, 0]
+franka_hand_simple:
+  scale: 0.001
+knife:
+  # rotation: [180, 0, 90] # peeling
+  rotation: [90, -45, 0] # scalping
+  # scale: 0.01
+  scale: 0.02 # bunny scalping
+
+spot:
+  scale: 1.0
+  rotation: [0, 0, 0]
+  translation: [0, 0, 0]
+  scalar_diffusion:
+    source_vertices: [1000, 500]
+    diffusion_scalar: 1000
+
+banana:
+  scale: 1.0
+  rotation: [0, 0, 0]
+  translation: [0, 0, 0]
+  scalar_diffusion:
+    source_vertices: [100, 4295]
+    diffusion_scalar: 1000
+
+
+
+
