@@ -88,8 +88,11 @@ class PointcloudScalarDiffusion(DiffusionSolver):
             config = yaml.safe_load(file)
 
         # Retrieve the section for the object
-        params = config.get(self.pcloud.object_name, {})
-        primitive_params = params[primitive_type]
+        params = config.get(self.pcloud.object_name, {}) if config else {}
+        # Handle case where entry exists but is None
+        if params is None:
+            params = {}
+        primitive_params = params.get(primitive_type, {})
         # print(f"Loaded parameters for {primitive_type}: {primitive_params}")
 
         # Recursively set all parameters as attributes

@@ -135,7 +135,10 @@ class Pointcloud(Manifold):
             config = yaml.safe_load(file)
 
         # Retrieve the parameters for the object
-        params = config.get(self.object_name, {})
+        params = config.get(self.object_name, {}) if config else {}
+        # Handle case where entry exists but is None
+        if params is None:
+            params = {}
 
         if self.voxel_size is None:
             if "voxel_size" in params:

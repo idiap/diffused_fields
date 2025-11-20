@@ -12,3 +12,7 @@ pcdiff
 # Visualization
 polyscope
 matplotlib>=3.5.0
+
+# Reinforcement Learning
+stable-baselines3
+

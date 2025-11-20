@@ -28,15 +28,16 @@ setup(
         "numpy>=1.21.0",
         "scipy>=1.7.0",
         "PyYAML>=6.0",
+        "tqdm",
         # Point cloud processing
         "open3d>=0.13.0",
         "potpourri3d",
         "robust_laplacian",
         "pcdiff",
-        # Visualization (optional but commonly used)
+        # Visualization
         "polyscope",
-        "plotly>=5.0.0",
-        "matplotlib>=3.5.0",
+        # Reinforcement Learning
+        "stable-baselines3",
     ],
     extras_require={
         "dev": [
@@ -44,12 +45,6 @@ setup(
             "pytest-cov",
             "black",
             "flake8",
-        ],
-        "geometry": [
-            "pygafro",  # Geometric algebra operations
-        ],
-        "robotics": [
-            "mujoco",  # For robot simulations
         ],
     },
     include_package_data=True,
@@ -72,23 +67,21 @@ setup(
     long_description_content_type="text/plain",
     author="Cem Bilaloglu",
     author_email="cem.bilaloglu@idiap.ch",
-    url="https://geometric-algebra.tobiloew.ch/tactile_ergodic_control/",
+    url="",
     project_urls={
         "Paper": "http://arxiv.org/abs/2402.04862",
-        "Source": "https://github.com/yourusername/diffused_fields",  # Update when available
+        "Source": "https://github.com/idiap/diffused_fields",  # Update when available
     },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.12",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: Scientific/Engineering :: Mathematics",
         "Topic :: Scientific/Engineering :: Physics",
     ],
-    python_requires=">=3.8",
+    python_requires=">=3.12",
     keywords="diffusion, point-cloud, mesh, manifolds, walk-on-spheres, geometric-algebra",
 )

@@ -21,9 +21,8 @@ Dependencies: diffused_fields.core, polyscope, matplotlib
 _AVAILABLE_MODULES = []
 
 try:
-    from .plotting_ps import PolyscopeVisualizer
     from .plotting_ps import *  # Import all plotting functions
-    _AVAILABLE_MODULES.append('PolyscopeVisualizer')
+    _AVAILABLE_MODULES.append('plotting_ps')
 except ImportError:
     pass
 

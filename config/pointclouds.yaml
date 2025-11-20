@@ -4,88 +4,10 @@
 # This file is part of diffused_fields.
 # Licensed under the MIT License. See LICENSE file in the project root.
 
-default:
-  scale: 1
-  rotation: [0, 0, 0]
-  translation: [0, 0, 0]
-  voxel_size: 0.003
 
-
-stiffness_sample:
-  scale: 1
-  rotation: [0, 0, 0]
-  voxel_size: 0.002 
-
-bun_full:
-  scale: 5
-  rotation: [0, -90, 0]
-  voxel_size: null
-  normal_orientation: -1
-
-pear:
-  scale: 1
-  rotation: [0, 0, 0]
-  voxel_size: 0.003
-  normal_orientation: -1
-
-
-banana:
-  scale: 1
-  # rotation: [90, 0, -45]
-  rotation: [90, 0, 0]
-  voxel_size: 0.003
-  normal_orientation: -1
-  scalar_diffusion:
-    diffusion_scalar: 100
-    # source_vertices: [683,1301]
-    # source_vertices: [683]
-    source_vertices: [440,518]
-  
-banana_half:
-  scale: 1
-  rotation: [90, 0, 0]
-  # rotation: [0, 0, 0]
-  voxel_size: 0.005
-  normal_orientation: -1
-
-plate_shapes:
-  scale: 1
-  voxel_size: 0.005
-  translation: [0.0,0.0,0.0]
-  rotation: [0, 0, 90]
-
-
-bunny_real:
-  rotation: [-90, 0, 0]
-  voxel_size: 0.0015
-
-bowl:
-  rotation: [-90,0,0]
-  scale: 1
-  normal_orientation: -1
 
 spot:
-  scale: 0.1
-  voxel_size: 0.003
-  normal_orientation: -1
+  normal_orientation: -1 # ensure that normals are pointing inwards
   scalar_diffusion:
-    source_vertices: [5583,1808] # voxel size 0.003
-    diffusion_scalar: 1000
+    source_vertices: [5583,1808]
 
-clutter_pens:
-  voxel_size: 0.003
-
-clutter_wire:
-  voxel_size: 0.003
-
-bottle:
-  voxel_size: 0.003
-
-clutter:
-  scale: 1
-  rotation: [0, 0, 0]
-  voxel_size: 0.003
-  normal_orientation: 1
-
-transparent_cap:
-  voxel_size: 0.003

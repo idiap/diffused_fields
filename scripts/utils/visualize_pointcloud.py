@@ -84,10 +84,7 @@ def visualize_pointcloud_with_colors(filename):
 def main():
     """Main function to run the visualization."""
 
-    # Use bottle.ply as requested
-    filename = "bottle.ply"
-    # filename = "transparent_cap.ply"
-    # filename = "t_boundary.ply"
+    filename = "pear.ply"
 
     try:
         visualize_pointcloud_with_colors(filename)

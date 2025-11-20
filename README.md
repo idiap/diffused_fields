@@ -20,9 +20,16 @@ This is the **core package** that provides fundamental diffusion algorithms and 
 
 ## Installation
 
-### Using pip
+### Using Python 3.12 virtual environment (recommended)
 
 ```bash
+# Create a virtual environment named 'df' with Python 3.12
+python3.12 -m venv df
+
+# Activate the virtual environment
+source df/bin/activate
+
+# Install the package in editable mode
 pip install -e .
 ```
 

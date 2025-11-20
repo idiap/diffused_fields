@@ -53,7 +53,7 @@ wos_diffusion = WalkOnSpheresDiffusion(
 
 
 # Define the sequence of axes to follow during trajectory rollout
-trajectory_axis_sequence = ["+z", "+x", "+y"]
+trajectory_axis_sequence = ["+z", "+x", "-y"]
 # Alternative examples:
 
 # Define custom direction mappings (axis_index, sign)
@@ -95,6 +95,7 @@ print(
 # Visualization
 ps.init()
 
+set_camera_and_plane()
 # Plot trajectory with orientation field
 plot_orientation_field(
     positions[::4],
