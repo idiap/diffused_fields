@@ -520,7 +520,7 @@ class Pointcloud(Manifold):
         # outward = self.center_vertex - self.center_point
         # sign = np.sign(np.dot(outward, normals[self.center_vertex]))
         # normals *= sign
-        self.normals = normals * self.normal_orientation
+        self.normals = -normals * self.normal_orientation
         return self.normals
 
     def get_local_basis(self):

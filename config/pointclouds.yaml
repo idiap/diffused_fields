@@ -7,7 +7,9 @@
 
 
 spot:
-  normal_orientation: -1 # ensure that normals are pointing inwards
   scalar_diffusion:
     source_vertices: [5583,1808]
 
+
+stiffness_sample:
+  normal_orientation: -1

@@ -1,26 +1,30 @@
 # Diffused Fields
 
-**Core package for diffusion PDE (i.e., heat equation) based methods on geometric manifolds.**
+This package is supplementary material for the paper **"Object-centric Task Representation and Transfer using Diffused Orientation Fields"**.
 
-This package provides implementations of both traditional diffusion solvers and walk-on-spheres methods on point clouds for various data types (scalars, vectors, quaternions).
+This is the **core package** that provides fundamental diffusion algorithms and geometric manifold operations for computing **Diffused Orienation Fields (DOF)**.
 
-This is supplementary material for the paper **"Object-centric Task Representation and Transfer using Diffused Orientation Fields"**.
-
-## Package Ecosystem
-
-This is the **core package** that provides fundamental diffusion algorithms and geometric manifold operations. For robot manipulation applications, see the companion package:
-
-- **[diffused_fields_robotics](https://github.com/idiap/diffused_fields_robotics)** - Robot manipulation applications including task representations, motion generation, and control (depends on this package)
+For robot manipulation experiments using **DOF**, see the companion package:
+- **[diffused_fields_robotics](https://github.com/idiap/diffused_fields_robotics)** (depends on this package) - Object-centric robot manipulation applications: local action primitives (peeling, slicing and tactile coverage), trajectory optimization, and reinforcement learning using DOF.
 
 ## Features
+
+**Core package for solving orientation valued diffusion PDE (i.e., heat equation) on geometric manifolds.**
+
+This package provides implementations of both traditional diffusion solvers and walk-on-spheres methods on point clouds for various data types (scalars, vectors, quaternions).
 
 - **Diffusion on Manifolds**: Scalar, vector, and quaternion diffusion on point clouds 
 - **Walk-on-Spheres Methods**: Monte Carlo-based diffusion solvers for point clouds and various geometric primitives
 - **Visualization Tools**: Interactive 3D visualization with Polyscope
+- **Comparisons to Baselines**: Comparison to nearest frame projection, tangent vector projection and Euclidean diffusion baselines
 
 ## Installation
 
-### Using Python 3.12 virtual environment (recommended)
+### Complete Installation (Recommended) 
+
+Follow the installation instructions of the **[diffused_fields_robotics](https://github.com/idiap/diffused_fields_robotics)**
+
+### Stand-alone Installation Using Python 3.12 virtual environment
 
 ```bash
 # Create a virtual environment named 'df' with Python 3.12
@@ -32,14 +36,6 @@ source df/bin/activate
 # Install the package in editable mode
 pip install -e .
 ```
-
-### Using conda (recommended for Open3D)
-
-```bash
-conda install open3d
-pip install -e .
-```
-
 
 ## Repository Structure
 
@@ -75,27 +71,15 @@ If you use this package in your research, please cite:
 }
 ```
 
-## Data
-
 
 ## Reproducing Paper Results
 
-All simulation data and plots from the paper can be generated using the scripts in this repository. 
+Simulation data and plots from the paper can be generated using the scripts in this repository. 
 
 ## Dependencies
 
 To compute the discrete Laplacian on point clouds (and also meshes if you want)
 robust_laplacian: https://github.com/nmwsharp/robust-laplacians-py
-```
-@article{Sharp:2020:LNT,
-  author={Nicholas Sharp and Keenan Crane},
-  title={{A Laplacian for Nonmanifold Triangle Meshes}},
-  journal={Computer Graphics Forum (SGP)},
-  volume={39},
-  number={5},
-  year={2020}
-}
-```
 
 For basic point cloud operations (another library can be easily used instead):
 open3d: https://www.open3d.org

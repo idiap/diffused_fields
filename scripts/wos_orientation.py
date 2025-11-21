@@ -49,7 +49,7 @@ wos_diffusion.diffuse_orientations_on_grid(grid)
 ps.init()
 set_camera_and_plane()
 ps_field = plot_orientation_field(
-    pcloud.vertices, pcloud.local_bases, name="pcloud", point_radius=1e-5
+    pcloud.vertices, pcloud.local_bases, name="pcloud", point_radius=0
 )
 ps_field.add_scalar_quantity(name="u0", values=scalar_diffusion.ut)
 plot_sources(pcloud.vertices[scalar_diffusion.source_vertices])
@@ -59,7 +59,7 @@ plot_orientation_field(
     name="grid",
     enable_x=True,
     enable_z=True,
-    point_radius=1e-5,
+    point_radius=0,
 )
 
 ps.show()
