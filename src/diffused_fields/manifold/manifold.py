@@ -10,6 +10,38 @@ import numpy as np
 import scipy.sparse as sp
 import scipy.sparse.linalg as sla
 
+# Below this length, (n_y, -n_x, 0) is too short to define a tangent direction,
+# i.e. the normal is (anti)parallel to z.
+TANGENT_DEGENERACY_EPS = 1e-6
+
+
+def tangent_basis(normals):
+    """
+    Orthonormal tangent vectors u, v for each normal, such that (u, v, n) is
+    right-handed.
+
+    u is (n_y, -n_x, 0) normalised. Where that vector vanishes because the
+    normal is along z (e.g. a flat patch facing the camera), u falls back to
+    n x e_x instead of being left as the zero vector.
+
+    Parameters:
+    - normals (np.ndarray): (N, 3) unit normals.
+
+    Returns:
+    - (np.ndarray, np.ndarray): (N, 3) tangent vectors u and v.
+    """
+    normals = np.asarray(normals, dtype=float)
+    u = np.column_stack(
+        [normals[:, 1], -normals[:, 0], np.zeros(len(normals))]
+    )
+    degenerate = np.linalg.norm(u, axis=1) < TANGENT_DEGENERACY_EPS
+    u[degenerate] = np.cross(normals[degenerate], [1.0, 0.0, 0.0])
+    u /= np.linalg.norm(u, axis=1, keepdims=True)
+    # ordering matters for the right handedness
+    v = np.cross(normals, u)
+    v /= np.linalg.norm(v, axis=1, keepdims=True)
+    return u, v
+
 
 def extract_plane(vertices, axis="x", value=0.0, tol=1e-3):
     """

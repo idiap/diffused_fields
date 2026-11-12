@@ -14,7 +14,7 @@ from scipy.spatial.transform import Rotation as R
 
 from ..core.config import Config
 from .grid import Grid
-from .manifold import Manifold, Sphere
+from .manifold import Manifold, Sphere, tangent_basis
 
 
 # child class
@@ -273,10 +273,7 @@ class Mesh(Manifold):
     def get_local_basis(self):
         if not hasattr(self, "normals"):
             self.get_normals()
-        self.tangent_vectors_u = np.column_stack(
-            [self.normals[:, 1], -self.normals[:, 0], np.zeros(len(self.vertices))]
-        )
-        self.tangent_vectors_v = np.cross(self.normals, self.tangent_vectors_u)
+        self.tangent_vectors_u, self.tangent_vectors_v = tangent_basis(self.normals)
 
     def get_k_edges(self, num_neighbors=3):
         if not hasattr(self, "kd_tree"):
